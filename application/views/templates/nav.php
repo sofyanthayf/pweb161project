@@ -12,12 +12,25 @@
     </div>
     <!-- Top Menu Items -->
     <ul class="nav navbar-right top-nav">
+
+<?php
+    if( isset( $_SESSION['username'] ) ) {
+?>
+        <li> <?= $_SESSION['username'] ?>
+            <a href="<?= base_url()?>user/logout">Logout</a>
+        </li>
+<?php
+    } else {
+ ?>
         <li>
             <a href="<?= base_url()?>user/login">Login</a>
         </li>
         <li>
             <a href="<?= base_url()?>user/reg">Register</a>
         </li>
+<?php
+    }
+?>
     </ul>
     <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
     <div class="collapse navbar-collapse navbar-ex1-collapse">

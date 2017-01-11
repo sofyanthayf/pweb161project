@@ -13,7 +13,10 @@ $route['user/register'] = 'user/register';
 
 $route['user/login'] = 'user/loginform';  // formulir login user
 $route['user/login/(:any)'] = 'user/loginform/$1';  // formulir login user
+$route['user/logout'] = 'user/logout';  //  logout user
+
 $route['user/dologin'] = 'user/login';  // proses login user
+
 $route['user/profile'] = 'user/editprofile';
 $route['user/uploadfoto'] = 'user/uploadfoto';
 

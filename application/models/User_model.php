@@ -42,6 +42,7 @@ class User_model extends CI_Model {
             $_SESSION['email'] = $query->row_array()['email'];
             $_SESSION['id'] = $query->row_array()['id'];
             $_SESSION['nama'] = $query->row_array()['namalengkap'];
+            $_SESSION['admin'] = $query->row_array()['admin'];
             return true;
         }
         return false;

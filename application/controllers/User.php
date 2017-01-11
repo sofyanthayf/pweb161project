@@ -78,14 +78,38 @@ class User extends CI_Controller {
 	public function login(){
 		if( $this->user_model->userterdaftar( $this->input->post('user') )) {
 			if( $this->user_model->passwordok( $this->input->post('pass') ) ){
-				redirect( base_url().'user/profil');
+				// user OK
+				redirect( base_url().'user/profile');
 			} else {
+				// password salah
 				redirect( base_url().'user/login/2');
 			}
 		} else {
+			// username salah
 			redirect( base_url().'user/login/1');
 		}
 
+	}
+
+	public function editprofile(){
+		if( $_SESSION['admin'] == 1 ){
+			$adm = ' Admin ';
+		} else {
+			$adm = '';
+		}
+		$data['page'] = "user";
+		$data['judul'] = "User";
+		$data['subjudul'] = "Edit $adm Profil";
+
+		$this->load->view('templates/header');
+		$this->load->view('templates/nav', $data);
+		$this->load->view('user/editprofile', $data);
+		$this->load->view('templates/footer');
+	}
+
+	public function logout(){
+		session_destroy();
+		redirect('user/login');
 	}
 
 }  // end of class
