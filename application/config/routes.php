@@ -9,6 +9,7 @@ $route['about'] = 'about';
 $route['user'] = 'user';
 $route['user/reg'] = 'user/formRegister';
 $route['user/register'] = 'user/register';
+$route['user/update'] = 'user/update';
 
 
 $route['user/login'] = 'user/loginform';  // formulir login user

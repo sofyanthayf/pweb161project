@@ -92,6 +92,8 @@ class User extends CI_Controller {
 	}
 
 	public function editprofile(){
+		$this->valid();
+
 		if( $_SESSION['admin'] == 1 ){
 			$adm = ' Admin ';
 		} else {
@@ -101,15 +103,31 @@ class User extends CI_Controller {
 		$data['judul'] = "User";
 		$data['subjudul'] = "Edit $adm Profil";
 
+		$data['user'] = $this->user_model->getuser( $_SESSION['username'] );
+
 		$this->load->view('templates/header');
 		$this->load->view('templates/nav', $data);
 		$this->load->view('user/editprofile', $data);
 		$this->load->view('templates/footer');
 	}
 
+	public function update(){
+		$this->user_model->updateuser();
+
+		$file = $_SESSION['username'].".jpg";
+		// echo $_FILES['foto']['name'];
+		move_uploaded_file($_FILES['foto']['tmp_name'], './assets/foto/'.$file);
+
+		redirect( base_url().'user/profile');
+	}
+
 	public function logout(){
 		session_destroy();
 		redirect('user/login');
+	}
+
+	private function valid(){
+		if( !isset( $_SESSION['username'] ) ) redirect('user/login');
 	}
 
 }  // end of class

@@ -18,6 +18,12 @@ class User_model extends CI_Model {
         $this->db->insert( 'members', $data );
     }
 
+    public function updateuser(){
+        $this->db->where('username', $_SESSION['username'] );
+        $data = [ 'namalengkap' => $this->input->post('nama') ];
+        $this->db->update( 'members', $data );
+    }
+
     public function namausersudahterdaftar( $namauser ){
         $query = $this->db->get_where( 'members', array( 'username' => $namauser) );
         if( !empty( $query->row_array() ) ) {
@@ -54,6 +60,15 @@ class User_model extends CI_Model {
         }
 
         return FALSE;
+    }
+
+
+    public function getuser($username){
+        $query = $this->db->get_where( 'members', array( 'username' => $username) );
+        if( !empty( $query->row_array() ) ) {
+            return $query->row_array();
+        }
+        return false;
     }
 
 }
