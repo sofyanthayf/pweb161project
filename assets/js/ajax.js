@@ -1,8 +1,6 @@
 
 
 
-
-
 $("#user").change( function(){
     $.ajax({
         url: "/pweb161/project/ajax/cekuser",
@@ -11,8 +9,10 @@ $("#user").change( function(){
         success: function(result){
             if( result == '1') {
                 $("#warning_user_name").html( "Username sudah terdaftar" );
+                $(":submit").attr("disabled", true);
             } else {
                 $("#warning_user_name").html( "Username OK" );
+                $(":submit").removeAttr("disabled");
             }
         }
     });

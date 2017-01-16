@@ -23,6 +23,14 @@ $route['user/uploadfoto'] = 'user/uploadfoto';
 
 $route['user/(:any)'] = 'user/data/$1';  /* $1 = id user; */
 
+/** NEWS  **/
+$route['news'] = 'news';
+$route['news/entry'] = 'news/entrinews';
+$route['news/submit'] = 'news/submitnews';
+
+
+
+
 /** AJAX  **/
 $route['ajax/cekuser'] = 'ajax/cekusername';
 $route['ajax/cekemail'] = 'ajax/cekemail';
