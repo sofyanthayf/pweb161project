@@ -12,7 +12,7 @@
             <label>Isi Berita:</label>
             <div class="form-group input-group">
                 <span class="input-group-addon"></span>
-                <textarea class="form-control" name="isinews" rows='10' cols="80" wrap="hard">-- Isi Berita --</textarea>
+                <textarea class="form-control" name="isinews" rows='10' cols="80">-- Isi Berita --</textarea>
             </div>
 
             <label>File Foto:</label>

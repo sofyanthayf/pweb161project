@@ -14,16 +14,27 @@ class News extends CI_Controller {
                       ];
     }
 
-	public function index() {
+	public function index( $idnews = '' ) {
         $this->load->view('templates/header');
 
-		$this->data['subjudul'] = "List";
+        if( $idnews==''){
+            $this->data['subjudul'] = "List";
 
-        $this->data['news'] = $this->news_model->get_list_news();
+            $this->data['news'] = $this->news_model->get_list_news();
 
-		$this->load->view('templates/nav', $this->data);
-		$this->load->view('news/newslist');
-		$this->load->view('templates/footer');
+            $this->load->view('templates/nav', $this->data);
+            $this->load->view('news/newslist');
+            $this->load->view('templates/footer');
+        } else {
+            $this->data['subjudul'] = "";
+
+            $this->data['news'] = $this->news_model->get_news($idnews);
+
+            $this->load->view('templates/nav', $this->data);
+            $this->load->view('news/newsread');
+            $this->load->view('templates/footer');
+        }
+
     }
 
     public function entrinews(){
