@@ -17,16 +17,16 @@
     if( isset( $_SESSION['username'] ) ) {
 ?>
         <li> <?= $_SESSION['username'] ?>
-            <a href="<?= base_url()?>user/logout">Logout</a>
+            <a href="/user/logout">Logout</a>
         </li>
 <?php
     } else {
  ?>
         <li>
-            <a href="<?= base_url()?>user/login">Login</a>
+            <a href="/user/login">Login</a>
         </li>
         <li>
-            <a href="<?= base_url()?>user/reg">Register</a>
+            <a href="/user/reg">Register</a>
         </li>
 <?php
     }
@@ -36,7 +36,7 @@
     <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav side-nav">
             <li <?php if($page == 'home') echo "class='active'" ?>>
-                <a href="<?=base_url()?>"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                <a href="/"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
             </li>
 
             <li>

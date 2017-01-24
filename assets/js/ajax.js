@@ -1,4 +1,12 @@
+$("#likenews").click( function(){
+    $.ajax({
+        url: "/news/likenews",
+        success: function(result){
+            $("#jumlahlike").html( result );
+        }
+    });
 
+});
 
 
 $("#user").change( function(){

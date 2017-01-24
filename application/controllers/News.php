@@ -52,6 +52,10 @@ class News extends CI_Controller {
         redirect(base_url().'news');
     }
 
+    public function likenews(){
+        echo $this->news_model->tambahlike( $_SESSION['idnews']);
+    }
+
 
 
 }

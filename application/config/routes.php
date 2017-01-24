@@ -27,6 +27,7 @@ $route['user/(:any)'] = 'user/data/$1';  /* $1 = id user; */
 $route['news'] = 'news';
 $route['news/entry'] = 'news/entrinews';
 $route['news/submit'] = 'news/submitnews';
+$route['news/likenews'] = 'news/likenews';
 $route['news/(:any)'] = 'news/index/$1';
 
 
